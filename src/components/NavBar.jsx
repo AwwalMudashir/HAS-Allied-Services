@@ -86,10 +86,11 @@ const NavBar = () => {
               <li className="">
                 <a 
                   onClick={() => handleNavClick('home')}
-                  className={`relative inline-flex items-center  text-md md:text-lg lg:text-base font-medium tracking-wide transition-all duration-300 cursor-pointer group
-                    ${activeSection === 'home' 
-                      ? 'text-slate-900 dark:text-white bg-white/90 dark:bg-white/5 ' 
-                      : 'text-slate-700 dark:text-gray-100 hover:text-slate-900 dark:hover:text-white hover:bg-white/30 dark:hover:bg-white/10'
+                  className={`relative inline-flex items-center px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-[15px] lg:text-base font-medium tracking-wide rounded-full transition-all duration-300 cursor-pointer group
+                    ${
+                      activeSection === 'home'
+                        ? 'text-slate-900 bg-white/90 shadow-sm dark:text-white dark:bg-slate-900/70'
+                        : 'text-slate-700 hover:text-slate-900 hover:bg-white/80 dark:text-gray-200 dark:hover:text-white dark:hover:bg-slate-800/80'
                     }`}
                 >
                   Home
@@ -99,10 +100,11 @@ const NavBar = () => {
               <li className="">
                 <a 
                   onClick={() => handleNavClick('about')}
-                  className={`relative inline-flex items-center  text-sm md:text-sm lg:text-base font-medium tracking-wide transition-all duration-300 cursor-pointer group
-                    ${activeSection === 'about' 
-                      ? 'text-slate-900 dark:text-white bg-white/90 dark:bg-white/5 ' 
-                      : 'text-slate-700 dark:text-gray-100 hover:text-slate-900 dark:hover:text-white hover:bg-white/30 dark:hover:bg-white/10'
+                  className={`relative inline-flex items-center px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-[15px] lg:text-base font-medium tracking-wide rounded-full transition-all duration-300 cursor-pointer group
+                    ${
+                      activeSection === 'about'
+                        ? 'text-slate-900 bg-white/90 shadow-sm dark:text-white dark:bg-slate-900/70'
+                        : 'text-slate-700 hover:text-slate-900 hover:bg-white/80 dark:text-gray-200 dark:hover:text-white dark:hover:bg-slate-800/80'
                     }`}
                 >
                   About
@@ -112,10 +114,11 @@ const NavBar = () => {
               <li className="">
                 <a 
                   onClick={() => handleNavClick('services')}
-                  className={`relative inline-flex items-center  text-sm md:text-sm lg:text-base font-medium tracking-wide transition-all duration-300 cursor-pointer group
-                    ${activeSection === 'services' 
-                      ? 'text-slate-900 dark:text-white bg-white/90 dark:bg-white/5 ' 
-                      : 'text-slate-700 dark:text-gray-100 hover:text-slate-900 dark:hover:text-white hover:bg-white/30 dark:hover:bg-white/10'
+                  className={`relative inline-flex items-center px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-[15px] lg:text-base font-medium tracking-wide rounded-full transition-all duration-300 cursor-pointer group
+                    ${
+                      activeSection === 'services'
+                        ? 'text-slate-900 bg-white/90 shadow-sm dark:text-white dark:bg-slate-900/70'
+                        : 'text-slate-700 hover:text-slate-900 hover:bg-white/80 dark:text-gray-200 dark:hover:text-white dark:hover:bg-slate-800/80'
                     }`}
                 >
                   Services
@@ -201,44 +204,58 @@ const NavBar = () => {
               <li className="m-0">
                 <a 
                   onClick={() => handleNavClick('home')}
-                  className={`mobile-nav-item text-slate-900 dark:text-gray-100 font-semibold text-lg px-5 py-3.5 rounded-2xl transition-all duration-300 hover:bg-[#00BED1]/12 dark:hover:bg-[#00BED1]/25 hover:backdrop-blur-sm block relative group cursor-pointer transform hover:translate-x-2
-                    ${activeSection === 'home' ? 'bg-[#00BED1]/15 dark:bg-[#00BED1]/25 border border-[#00BED1]/40 shadow-lg shadow-[#00BED1]/25' : 'border border-transparent'}
-                  `}
+                  className={`mobile-nav-item flex items-center justify-between text-slate-900 dark:text-gray-100 font-semibold text-lg px-5 py-3.5 rounded-xl transition-all duration-300 hover:bg-[#00BED1]/10 dark:hover:bg-slate-800/80 hover:backdrop-blur-sm block relative cursor-pointer transform hover:translate-x-2
+                    ${
+                      activeSection === 'home'
+                        ? 'bg-[#00BED1]/15 dark:bg-slate-900 border border-[#00BED1]/40 shadow-lg shadow-[#00BED1]/25'
+                        : 'border border-transparent'
+                    }`}
                   style={{ animationDelay: '0.1s' }}
                 >
                   <span className="flex items-center gap-3">
-                    <i className="fas fa-home text-[#00BED1] w-6"></i>
+                    <i className="fas fa-home text-[#00BED1] w-6" />
                     Home
                   </span>
+                  {activeSection === 'home' && (
+                    <i className="fas fa-circle text-[8px] text-[#00BED1]" />
+                  )}
                   <span className="absolute bottom-0 left-0 w-0 h-1 bg-[#00BED1] transition-all duration-300 group-hover:w-full rounded-full"></span>
                 </a>
               </li>
               <li className="m-0">
                 <a 
                   onClick={() => handleNavClick('about')}
-                  className={`mobile-nav-item text-slate-900 dark:text-gray-100 font-semibold text-lg px-5 py-3.5 rounded-2xl transition-all duration-300 hover:bg-[#00BED1]/12 dark:hover:bg-[#00BED1]/25 hover:backdrop-blur-sm block relative group cursor-pointer transform hover:translate-x-2
-                    ${activeSection === 'about' ? 'bg-[#00BED1]/15 dark:bg-[#00BED1]/25 border border-[#00BED1]/40 shadow-lg shadow-[#00BED1]/25' : 'border border-transparent'}
-                  `}
+                  className={`mobile-nav-item flex items-center justify-between text-slate-900 dark:text-gray-100 font-semibold text-lg px-5 py-3.5 rounded-xl transition-all duration-300 hover:bg-[#00BED1]/10 dark:hover:bg-slate-800/80 hover:backdrop-blur-sm block relative cursor-pointer transform hover:translate-x-2
+                    ${
+                      activeSection === 'about'
+                        ? 'bg-[#00BED1]/15 dark:bg-slate-900 border border-[#00BED1]/40 shadow-lg shadow-[#00BED1]/25'
+                        : 'border border-transparent'
+                    }`}
                   style={{ animationDelay: '0.2s' }}
                 >
                   <span className="flex items-center gap-3">
-                    <i className="fas fa-info-circle text-[#00BED1] w-6"></i>
+                    <i className="fas fa-info-circle text-[#00BED1] w-6" />
                     About
                   </span>
+                  {activeSection === 'about' && (
+                    <i className="fas fa-circle text-[8px] text-[#00BED1]" />
+                  )}
                   <span className="absolute bottom-0 left-0 w-0 h-1 bg-[#00BED1] transition-all duration-300 group-hover:w-full rounded-full"></span>
                 </a>
               </li>
               <li className="m-0">
                 <a 
                   onClick={() => handleNavClick('services')}
-                  className={`mobile-nav-item text-slate-900 dark:text-gray-100 font-semibold text-lg px-5 py-3.5 rounded-2xl transition-all duration-300 hover:bg-[#00BED1]/12 dark:hover:bg-[#00BED1]/25 hover:backdrop-blur-sm block relative group cursor-pointer transform hover:translate-x-2
-                  `}
+                  className="mobile-nav-item flex items-center justify-between text-slate-900 dark:text-gray-100 font-semibold text-lg px-5 py-3.5 rounded-xl transition-all duration-300 hover:bg-[#00BED1]/10 dark:hover:bg-slate-800/80 hover:backdrop-blur-sm block relative cursor-pointer transform hover:translate-x-2"
                   style={{ animationDelay: '0.3s' }}
                 >
                   <span className="flex items-center gap-3">
-                    <i className="fas fa-briefcase text-[#00BED1] w-6"></i>
+                    <i className="fas fa-briefcase text-[#00BED1] w-6" />
                     Services
                   </span>
+                  {activeSection === 'services' && (
+                    <i className="fas fa-circle text-[8px] text-[#00BED1]" />
+                  )}
                   <span className="absolute bottom-0 left-0 w-0 h-1 bg-[#00BED1] transition-all duration-300 group-hover:w-full rounded-full"></span>
                 </a>
               </li>
