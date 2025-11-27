@@ -1,6 +1,10 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const AboutSection = () => {
+
+  const navigate = useNavigate()
+
   return (
     <section id="about" className="section-fade-up bg-white py-10 md:py-16 lg:py-20 px-4 md:px-8">
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
@@ -28,7 +32,7 @@ const AboutSection = () => {
             preventive maintenance so your network delivers stable performance around the clock.
           </p>
 
-          <button className="inline-flex items-center gap-2 bg-[#00BED1] hover:bg-[#0098A7] text-white px-7 py-3 rounded-full text-xs md:text-sm font-medium transition-all duration-300 hover:scale-105 active:scale-95 shadow-md hover:shadow-lg">
+          <button onClick={() => navigate('/about')} className="inline-flex items-center gap-2 bg-[#00BED1] hover:bg-[#0098A7] text-white px-7 py-3 rounded-full text-xs md:text-sm font-medium transition-all duration-300 hover:scale-105 active:scale-95 shadow-md hover:shadow-lg">
             More about HAS
             <span className="text-[11px]">
               <i className="fas fa-arrow-right" />

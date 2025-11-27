@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useTheme } from '../context/ThemeContext'
+import { useNavigate } from 'react-router-dom'
 
 const NavBar = () => {
   const { isDark, toggleTheme } = useTheme()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
+  const navigate = useNavigate()
 
   // Close menu when clicking outside or on route change
   useEffect(() => {
@@ -34,6 +36,7 @@ const NavBar = () => {
     }
     setActiveSection(sectionId)
     setIsMenuOpen(false)
+    navigate(`/${sectionId}`)
   }
 
   // Update active section on scroll
@@ -82,15 +85,14 @@ const NavBar = () => {
 
           {/* Center: Desktop Navigation Links */}
           <div className="flex items-center">
-            <ul className="flex list-none gap-8 lg:gap-10 mt-3 p-0">
+            <ul className="flex list-none gap-5 lg:gap-7 mt-2.5 p-0">
               <li className="">
                 <a 
                   onClick={() => handleNavClick('home')}
-                  className={`relative inline-flex items-center px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-[15px] lg:text-base font-medium tracking-wide rounded-full transition-all duration-300 cursor-pointer group
-                    ${
-                      activeSection === 'home'
-                        ? 'text-slate-900 bg-white/90 shadow-sm dark:text-white dark:bg-slate-900/70'
-                        : 'text-slate-700 hover:text-slate-900 hover:bg-white/80 dark:text-gray-200 dark:hover:text-white dark:hover:bg-slate-800/80'
+                  className={`relative inline-flex items-center px-0 py-0.5 text-sm md:text-[15px] lg:text-base font-medium tracking-wide transition-all duration-300 cursor-pointer group
+                    ${activeSection === 'home'
+                      ? 'text-slate-900 dark:text-white'
+                      : 'text-slate-700 hover:text-slate-900 dark:text-gray-200 dark:hover:text-white'
                     }`}
                 >
                   Home
@@ -100,11 +102,10 @@ const NavBar = () => {
               <li className="">
                 <a 
                   onClick={() => handleNavClick('about')}
-                  className={`relative inline-flex items-center px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-[15px] lg:text-base font-medium tracking-wide rounded-full transition-all duration-300 cursor-pointer group
-                    ${
-                      activeSection === 'about'
-                        ? 'text-slate-900 bg-white/90 shadow-sm dark:text-white dark:bg-slate-900/70'
-                        : 'text-slate-700 hover:text-slate-900 hover:bg-white/80 dark:text-gray-200 dark:hover:text-white dark:hover:bg-slate-800/80'
+                  className={`relative inline-flex items-center px-0 py-0.5 text-sm md:text-[15px] lg:text-base font-medium tracking-wide transition-all duration-300 cursor-pointer group
+                    ${activeSection === 'about'
+                      ? 'text-slate-900 dark:text-white'
+                      : 'text-slate-700 hover:text-slate-900 dark:text-gray-200 dark:hover:text-white'
                     }`}
                 >
                   About
@@ -114,11 +115,10 @@ const NavBar = () => {
               <li className="">
                 <a 
                   onClick={() => handleNavClick('services')}
-                  className={`relative inline-flex items-center px-3 py-1.5 md:px-4 md:py-2 text-sm md:text-[15px] lg:text-base font-medium tracking-wide rounded-full transition-all duration-300 cursor-pointer group
-                    ${
-                      activeSection === 'services'
-                        ? 'text-slate-900 bg-white/90 shadow-sm dark:text-white dark:bg-slate-900/70'
-                        : 'text-slate-700 hover:text-slate-900 hover:bg-white/80 dark:text-gray-200 dark:hover:text-white dark:hover:bg-slate-800/80'
+                  className={`relative inline-flex items-center px-0 py-0.5 text-sm md:text-[15px] lg:text-base font-medium tracking-wide transition-all duration-300 cursor-pointer group
+                    ${activeSection === 'services'
+                      ? 'text-slate-900 dark:text-white'
+                      : 'text-slate-700 hover:text-slate-900 dark:text-gray-200 dark:hover:text-white'
                     }`}
                 >
                   Services

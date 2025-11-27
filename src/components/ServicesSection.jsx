@@ -1,13 +1,16 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-const services = [
+export const services = [
   {
+    id: 'managed-services',
     title: 'Managed Services',
     description:
       'Proactive monitoring, incident response and lifecycle management for your telecom sites and links.',
     icon: 'fas fa-cogs',
   },
   {
+    id: 'voice-and-data',
     title: 'Voice & Data',
     description:
       'Enterprise‑grade voice and data solutions that keep teams and branches connected across locations.',
@@ -15,24 +18,28 @@ const services = [
     featured: true,
   },
   {
-    title: 'Colocated Hosting',
+    id: 'telecommunication-infrastructure',
+    title: 'Telecommunication Infrastructure',
     description:
-      'Secure rack space, power and connectivity for your core network and critical IT equipment.',
+      'HAS ALLIED SERVICES has resources to manage more than 30 Greenfield sites on turnkey basis in a month.',
     icon: 'fas fa-server',
   },
   {
-    title: 'Cloud Connectivity',
+    id: 'systems-integration',
+    title: 'Systems Integration',
     description:
-      'Optimised connectivity into public and private cloud platforms with predictable latency.',
+      'conversant with construction activities and capable of handling projects such as installation of Optical Fibre Cable or rolling out Copper networks having multi-location characteristics',
     icon: 'fas fa-cloud',
   },
   {
+    id: 'cable-and-wiring',
     title: 'Cable & Wiring',
     description:
       'Structured cabling, fibre runs and clean patching that keep your infrastructure organised.',
     icon: 'fas fa-network-wired',
   },
   {
+    id: 'satellite-links',
     title: 'Satellite Links',
     description:
       'Backup and remote‑site connectivity using satellite where terrestrial access is limited.',
@@ -41,6 +48,12 @@ const services = [
 ]
 
 const ServicesSection = () => {
+  const navigate = useNavigate()
+
+  const handleServiceClick = (serviceId) => {
+    navigate(`/services#${serviceId}`)
+  }
+
   return (
     <section id="services" className="section-fade-up bg-slate-950 text-gray-100 py-12 md:py-16 lg:py-20 px-4 md:px-8">
       <div className="max-w-6xl mx-auto">
@@ -70,6 +83,15 @@ const ServicesSection = () => {
                     : 'bg-slate-900/70 border-slate-800 hover:border-[#00BED1]/70 hover:bg-slate-900 shadow-[0_14px_40px_rgba(15,23,42,0.85)]'
                 }`}
               style={{ animationDelay: `${0.1 + index * 0.08}s` }}
+              onClick={() => handleServiceClick(service.id)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  handleServiceClick(service.id)
+                }
+              }}
             >
               {/* Glow line */}
               

@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className="mt-12 md:mt-16 border-t  bg-[#00BED1]/10 text-gray-700 dark:text-gray-300">
+    <footer className="mt-12 md:mt-16 border-t  bottom-0  bg-[#00BED1]/10 text-gray-700 dark:text-gray-300">
       <div className="max-w-6xl mx-auto px-4 md:px-8 py-10 md:py-12">
         {/* Top section */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-10">
@@ -64,7 +64,7 @@ const Footer = () => {
               <br />
               Sharp Corner, Mararaba
               <br />
-              Abuja, Nigeria
+              Lagos, Nigeria
             </p>
             <p className="text-xs text-gray-500 dark:text-gray-400">
               Available for projects across Nigeria and regional deployments.
